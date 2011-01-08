@@ -90,9 +90,28 @@ function createMenu() {
             //Set the border
             $('#males td').css('border', 'thin solid #ccc');
             $('td', target).css('border', 'thick solid blue');
+
+            //Find the client for this profile.
+            for (var idx = male_client_list.length - 1; idx >= 0; idx--) {
+                if (male_client_list[idx].id == parseInt(e.currentTarget.id, 10)) {
+                    selected_male = male_client_list[idx];
+                    break;
+                }
+            }
         } else {
+            //Set the border
             $('#females td').css('border', 'thin solid #ccc');
             $('td', target).css('border', 'thick solid pink');
+
+            //Find the client for this profile.
+            for (var idx = female_client_list.length - 1; idx >= 0; idx--) {
+                if (female_client_list[idx].id == parseInt(e.currentTarget.id, 10)) {
+                    selected_female = female_client_list[idx];
+                    break;
+                }
+            }
         }
+
+
     });
 }
