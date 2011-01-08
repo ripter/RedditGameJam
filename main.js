@@ -11,7 +11,7 @@ $(document).ready(function() {
     //Create some client profiles
         //Male Profile
     clients.push({
-        image: 'img/male1.png',
+        image: 'img/male1_min.png',
         name: 'Steve Wallus',
         sex: 'Male',
         likes: ['Cheese', 'Kittens'],
@@ -23,7 +23,7 @@ $(document).ready(function() {
         income: 50
     });
     clients.push({
-        image: 'img/male2.png',
+        image: 'img/male2_min.png',
         name: 'Dannel Jackson',
         sex: 'Male',
         likes: ['Aliens', 'Language'],
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     //Female Profile
     clients.push({
-        image: 'img/female1.png',
+        image: 'img/female1_min.png',
         name: 'Jenna Mitcheal',
         sex: 'Female',
         likes: ['Rock', 'Books'],
@@ -49,7 +49,7 @@ $(document).ready(function() {
         income: 25
     });
     clients.push({
-        image: 'img/female2.png',
+        image: 'img/female2_min.png',
         name: 'Sam Cater',
         sex: 'Female',
         likes: ['Aliens', 'Space'],
@@ -90,12 +90,23 @@ function createMenu() {
     $('#client_list table').live('click', function(e) {
         //Find the client for this profile.
         var client = null;
-        
+
         for (var idx = clients.length - 1; idx >= 0; idx--) {
             if (clients[idx].id == parseInt(e.currentTarget.id, 10)) {
                 client = clients[idx];
                 break;
             }
+        }
+        
+        //Is it a male for female?
+        if( 'Male' == client.sex ) {
+            //Highlight them in blue.
+            $(e.currentTarget).css('border', 'thick solid blue');
+            selected_male = client;
+        } else {
+            //Highlight them in pink.
+            $(e.currentTarget).css('border', 'thick solid pink');
+            selected_female = client;
         }
 
         console.log('Client is:', client);

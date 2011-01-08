@@ -8,6 +8,11 @@ var _unique_id = 1;
 //All the clients in the game.
 var client_list = [];
 
+//Selected values are used for the menu/controls
+var selected_male = null;
+var selected_female = null;
+
+
 /**
  * Returns a new Unqiue ID
  * @return {int} a unique id in the system.
