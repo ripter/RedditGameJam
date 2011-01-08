@@ -59,7 +59,7 @@
     </div>
 
     <script type="text/x-jqote-template" id="tmpl_client_profile">
-        <% var id = +new Date();
+        <% var id = getUniqueID();
             this.id = id; 
         %>
         <table id="<%= id %>" class="client-profile">
