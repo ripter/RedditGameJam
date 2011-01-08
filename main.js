@@ -82,4 +82,17 @@ function createMenu() {
         }
     });
 
+    $('.client-list tr').live('click', function(e) {
+        //Find the client for this profile
+        var target = $(e.currentTarget);
+        //is the the boy list or the girl list?
+        if ('males' ==  target.parent().parent().attr('id')) {
+            //Set the border
+            $('#males td').css('border', 'thin solid #ccc');
+            $('td', target).css('border', 'thick solid blue');
+        } else {
+            $('#females td').css('border', 'thin solid #ccc');
+            $('td', target).css('border', 'thick solid pink');
+        }
+    });
 }
