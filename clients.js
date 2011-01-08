@@ -34,7 +34,9 @@ function Client(isMale) {
     //Pick the Hates
     var hate1 = interests[0 | (Math.random() * len)];
     var hate2 = interests[0 | (Math.random() * len)];
-    while (hate1 == hate2) {
+    while (hate1 == hate2 ||
+            like1 == hate2 ||
+            like2 == hate2) {
         hate2 = interests[0 | (Math.random() * len)];
     }
     this.hate_list = [hate1, hate2];
