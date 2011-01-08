@@ -3,6 +3,30 @@
  */
 $(document).ready(function() {
 
+    //Create some client profiles
+    var clients = [];
+    //Male Profile
+    clients.push({
+        image: 'img/male1.png',
+        name: 'Steve Wallus',
+        sex: 'Male',
+        likes: ['String Cheese', 'Kittens'],
+        hates: ['Homework', 'Pillows']
+    });
+    //Female Profile
+    clients.push({
+        image: 'img/female.png',
+        name: 'Jenna Workus',
+        sex: 'Female',
+        likes: ['Rock', 'Books'],
+        hates: ['String Cheese', 'Hotdogs']
+    });
+
+
+    //Build the profile list.
+    $('#client_list').jqoteapp('#tmpl_client_profile', clients);
+
+
     //Create Challange Data
     var data = {
         container_id: '#challange',

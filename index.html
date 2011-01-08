@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <script src="jquery-1.4.4.min.js"></script>
     <script src="jquery-ui-1.8.7.custom.min.js"></script>
+    <script src="jquery.jqote2.min.js"></script>
     <link type="text/css" href="css/custom-theme/jquery-ui-1.8.7.custom.css" rel="stylesheet" />
     <style type="text/css">
         .client-profile {
@@ -20,7 +21,7 @@
         <h1 class="ui-widget-header ui-corner-top">
             Manage Clients
         </h1>
-        <div class="ui-widget-content">
+        <div id="client_list" class="ui-widget-content">
 
             <table class="client-profile">
                 <tr>
@@ -32,6 +33,7 @@
                             <li><b>Name:</b> <i>Steve</i></li>
                             <li><b>Sex:</b> <i>Male</i></li>
                             <li><b>Likes:</b>  <i>Coffee, Metal</i></li>
+                            <li><b>Hates:</b>  <i>Snow, Stoplights</i></li>
                         </ul>
                     </td>
                 </tr>
@@ -56,6 +58,7 @@
                             <li><b>Name:</b> <i>Jenna</i></li>
                             <li><b>Sex:</b> <i>Female</i></li>
                             <li><b>Likes:</b>  <i>Romance, Metal</i></li>
+                            <li><b>Hates:</b>  <i>Boots, Pancakes</i></li>
                         </ul>
                     </td>
                 </tr>
@@ -92,6 +95,32 @@
         </div>
 
     </div>
+
+    <script type="text/x-jqote-template" id="tmpl_client_profile">
+        <table class="client-profile">
+            <tr>
+                <td>
+                    <img src="img/female1.png" height="50" width="50" />
+                </td>
+                <td>
+                     <ul>
+                        <li><b>Name:</b> <i>Jenna</i></li>
+                        <li><b>Sex:</b> <i>Female</i></li>
+                        <li><b>Likes:</b>  <i>Romance, Metal</i></li>
+                        <li><b>Hates:</b>  <i>Boots, Pancakes</i></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <b>Loneliness</b>
+                    <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
+                        <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </script>
 
     <script src="challangeBar.js"></script>
     <script src="main.js"></script>
