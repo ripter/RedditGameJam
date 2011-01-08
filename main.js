@@ -90,7 +90,8 @@ $(document).ready(function() {
 function createMenu() {
     //Create the flirt dialog.
     $('#flirt').dialog({
-        autoOpen: false
+        autoOpen: false,
+        title: 'Flirt'
     });
 
     //The Flirt button!
@@ -100,7 +101,7 @@ function createMenu() {
             alert('You must select a Male and a Female to flirt');
         } else {
             //Let's play the flirting game!
-            
+
             challangeBar(new ChallangeData('intelligence'), function(zone, img) {
                 console.log('Hit zone: ', zone);
                 //Diplay the image

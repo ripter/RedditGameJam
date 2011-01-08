@@ -8,8 +8,8 @@ function challangeBar(data, callback) {
     var canvas = $(data.container_id + ' canvas');
     var context = canvas[0].getContext('2d');
 
-    var height = canvas.height();
-    var width = canvas.width();
+    var height = 30;
+    var width = 200;
     var position = 0 | (Math.random() * width);
     var goLeft = true;
 
@@ -17,13 +17,13 @@ function challangeBar(data, callback) {
     $(data.container_id + ' .name').html(data.name);
 
     context.fillStyle = 'orange';
-    context.fillRect( 0, 0, 200, 30);
+    context.fillRect(0, 0, 200, 30);
     //Create a loop to run the animation
     var interval_id = setInterval(function() {
-        console.log('context loop', data, canvas);
         //Draw the FAIL zone
         context.fillStyle = 'red';
         context.fillRect(0, 0, width, height);
+        context.fillRect(0, 0, 200, 15);
         //Draw the OK zone
         context.fillStyle = 'yellow';
         context.fillRect(data.ok[0], 0, data.ok[1], height);
@@ -83,12 +83,13 @@ function challangeBar(data, callback) {
 /**
  * Creates the challange data from the selected male & female.
  * @constructor
+ * @param {String} name the status property to use
  */
 function ChallangeData(name) {
 
     this.container_id = '#challange';
     this.name = name;
-    
+
     //Let's figure out the zones
 
     //Subtract?
@@ -97,10 +98,10 @@ function ChallangeData(name) {
     var good = bad - ok;
 
     //Set the ranges
-    this.perfect = [ 0 | (Math.random() * 100), 4];
-    this.good = [ 0 | (Math.random() * 100), good];
-    this.ok = [ 0 | (Math.random() * 100), ok];
-    this.bad = [ 0 | (Math.random() * 100), bad];
+    this.perfect = [0 | (Math.random() * 100), 4];
+    this.good = [0 | (Math.random() * 100), good];
+    this.ok = [0 | (Math.random() * 100), ok];
+    this.bad = [0 | (Math.random() * 100), bad];
 
     this.perfect = [90, 4];
     this.good = [80, 40];
