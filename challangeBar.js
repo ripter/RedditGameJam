@@ -76,3 +76,11 @@ function challangeBar(data, callback) {
         }
     });
 }
+
+/**
+ * Creates the challange data from the selected male & female.
+ * @constructor
+ */
+function CreateChallangeData() {
+
+}

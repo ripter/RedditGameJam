@@ -86,6 +86,21 @@ $(document).ready(function() {
 });
 
 function createMenu() {
+    //Create the flirt dialog.
+    $('#flirt').dialog({
+        autoOpen: false
+    });
+
+    //The Flirt button!
+    $('#btn_flirt').button().bind('click', function() {
+        //Is there a male and a female selected?
+        if (null == selected_male || null == selected_female) {
+            alert('You must select a Male and a Female to flirt');
+        } else {
+            //Let's play the flirting game!
+            $('#flirt').dialog('open');
+        }
+    });
 
     //Clicking on a client profile should select them.
     $('#client_list table').live('click', function(e) {
@@ -104,16 +119,14 @@ function createMenu() {
 
         //Clear all of the old selections
         $('.client-profile').css('border', 'thick solid #ccc');
-        
+
         //Now Color the male and female
-        if( null != selected_male ) {
+        if (null != selected_male) {
             $('#' + selected_male.id).css('border', 'thick solid blue');
         }
         if (null != selected_female) {
-             $('#' + selected_female.id).css('border', 'thick solid pink');
+             $('#' + selected_female.id).css('border', 'thick solid red');
         }
-
-        console.log('Client is:', client);
     });
 
 }
