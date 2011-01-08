@@ -59,7 +59,11 @@
     </div>
 
     <script type="text/x-jqote-template" id="tmpl_client_profile">
-        <table class="client-profile">
+        <% var id = +new Date();
+            this.id = id; 
+            console.log("i", i, "id", id, "+new Date", +new Date());
+        %>
+        <table id="<%= id %>" class="client-profile">
             <tr>
                 <td>
                     <img src="<%= this.image %>" height="50" width="50" />

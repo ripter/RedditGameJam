@@ -1,3 +1,6 @@
+//Hold a list of all the clients
+var clients = [];
+
 /**
  * Main Game Code
  */
@@ -6,8 +9,7 @@ $(document).ready(function() {
     createMenu();
 
     //Create some client profiles
-    var clients = [];
-    //Male Profile
+        //Male Profile
     clients.push({
         image: 'img/male1.png',
         name: 'Steve Wallus',
@@ -84,6 +86,21 @@ $(document).ready(function() {
 });
 
 function createMenu() {
-    
+
+    $('#client_list table').live('click', function(e) {
+        console.log('Live click', e);
+
+        //Find the client for this profile.
+        var client = null;
+        for (var idx = clients.length-1; idx <= 0; idx--) {
+            console.log("compaire", clients[idx].id, parseInt(e.currentTarget.id, 10), '==', clients[idx].id == parseInt(e.currentTarget.id, 10));
+            if (clients[idx].id == parseInt(e.currentTarget.id, 10)) {
+                client = clients[idx];
+                break;
+            }
+        }
+
+        console.log("Client is:", client);
+    });
     
 }
