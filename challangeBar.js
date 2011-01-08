@@ -16,8 +16,11 @@ function challangeBar(data, callback) {
     //Set the Title
     $(data.container_id + ' .name').html(data.name);
 
+    context.fillStyle = 'orange';
+    context.fillRect( 0, 0, 200, 30);
     //Create a loop to run the animation
     var interval_id = setInterval(function() {
+        console.log('context loop', data, canvas);
         //Draw the FAIL zone
         context.fillStyle = 'red';
         context.fillRect(0, 0, width, height);
@@ -81,6 +84,27 @@ function challangeBar(data, callback) {
  * Creates the challange data from the selected male & female.
  * @constructor
  */
-function CreateChallangeData() {
+function ChallangeData(name) {
+
+    this.container_id = '#challange';
+    this.name = name;
+    
+    //Let's figure out the zones
+
+    //Subtract?
+    var bad = selected_male[name] - selected_female[name];
+    var ok = 200 - bad;
+    var good = bad - ok;
+
+    //Set the ranges
+    this.perfect = [ 0 | (Math.random() * 100), 4];
+    this.good = [ 0 | (Math.random() * 100), good];
+    this.ok = [ 0 | (Math.random() * 100), ok];
+    this.bad = [ 0 | (Math.random() * 100), bad];
+
+    this.perfect = [90, 4];
+    this.good = [80, 40];
+    this.ok = [60, 100];
+
 
 }

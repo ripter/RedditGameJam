@@ -67,6 +67,7 @@ $(document).ready(function() {
     $('#client_list').jqoteapp('#tmpl_client_profile', client_list);
 
 
+    /*
     //Create Challange Data
     var data = {
         container_id: '#challange',
@@ -83,6 +84,7 @@ $(document).ready(function() {
         context.putImageData(img, 0, 0);
 
     });
+    */
 });
 
 function createMenu() {
@@ -98,6 +100,15 @@ function createMenu() {
             alert('You must select a Male and a Female to flirt');
         } else {
             //Let's play the flirting game!
+            
+            challangeBar(new ChallangeData('intelligence'), function(zone, img) {
+                console.log('Hit zone: ', zone);
+                //Diplay the image
+                var context = $('#flirt_int')[0].getContext('2d');
+                context.putImageData(img, 0, 0);
+
+            });
+
             $('#flirt').dialog('open');
         }
     });
