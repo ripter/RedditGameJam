@@ -14,9 +14,11 @@ function Client(isMale) {
     if (isMale) {
         len = first_names_male.length;
         this.name = first_names_male[0 | (Math.random() * len)];
+        this.sex = 'Male';
     } else {
         len = first_names_female.length;
         this.name = first_names_female[0 | (Math.random() * len)];
+        this.sex = 'Female';
     }
     //Pick a last name
     len = last_names.length;
@@ -40,4 +42,10 @@ function Client(isMale) {
         hate2 = interests[0 | (Math.random() * len)];
     }
     this.hate_list = [hate1, hate2];
+
+    //Set the inital happyness
+    this.happy = 30 + (0 | (Math.random() * 30));
+
+    //Initally they haven't gone on any dates
+    this.hadDate = false;
 }

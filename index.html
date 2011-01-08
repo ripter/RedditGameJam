@@ -51,8 +51,8 @@
 
         <button id="btn_flirt" type="button">Flirt!</button>
 
-        <div id="client_list" class="ui-widget-content">
-        </div>
+        <b id="time">Week 1</b>
+        <b id="money">Cash: $100</b>
 
         <!-- Tables for style, yuck, but I'm short on time -->
         <table style="width:100%">
@@ -75,6 +75,7 @@
                                 <th>Name</th>
                                 <th>Likes</th>
                                 <th>Hates</th>
+                                <th>Happy</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -87,6 +88,7 @@
                     <table id="females" class="client-list">
                          <thead>
                             <tr>
+                                <th>Happy</th>
                                 <th>Name</th>
                                 <th>Likes</th>
                                 <th>Hates</th>
@@ -124,10 +126,15 @@
     </div>
 
     <script type="text/x-jqote-template" id="tmpl_client_row">
-        <% var id = getUniqueID();
+        <% 
+            
+            var id = this.id || getUniqueID();
             this.id = id; 
         %>
         <tr id="<%= this.id %>">
+            <% if ('Female' == this.sex) { %>
+                <td><%= this.happy %></td>
+            <% } %>
             <td>
                 <%= this.name %>
             </td>
@@ -141,6 +148,9 @@
                     <%= this.hate_list[idx] %>,
                 <% } %>
             </td>
+            <% if ('Male' == this.sex) { %>
+                    <td><%= this.happy %></td>
+            <% } %>
         </tr>
     </script>
 

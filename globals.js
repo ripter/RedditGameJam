@@ -13,6 +13,10 @@ var female_client_list = [];
 var selected_male = null;
 var selected_female = null;
 
+//Keep track of the week counter
+var week_count = 1;
+var money = 100;
+
 
 /**
  * Returns a new Unqiue ID
