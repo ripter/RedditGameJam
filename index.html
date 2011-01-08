@@ -12,6 +12,11 @@
             border: thin solid #ccc;
             width: 20em;
             margin: .5em;
+            float: left;
+        }
+
+        #flirt {
+            clear: both;
         }
     </style>
 </head>
@@ -22,56 +27,6 @@
             Manage Clients
         </h1>
         <div id="client_list" class="ui-widget-content">
-
-            <table class="client-profile">
-                <tr>
-                    <td>
-                        <img src="img/male1.png" height="50" width="50" />
-                    </td>
-                    <td>
-                         <ul>
-                            <li><b>Name:</b> <i>Steve</i></li>
-                            <li><b>Sex:</b> <i>Male</i></li>
-                            <li><b>Likes:</b>  <i>Coffee, Metal</i></li>
-                            <li><b>Hates:</b>  <i>Snow, Stoplights</i></li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <b>Loneliness</b>
-                        <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
-                            <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 77%;"></div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-
-            <table class="client-profile">
-                <tr>
-                    <td>
-                        <img src="img/female1.png" height="50" width="50" />
-                    </td>
-                    <td>
-                         <ul>
-                            <li><b>Name:</b> <i>Jenna</i></li>
-                            <li><b>Sex:</b> <i>Female</i></li>
-                            <li><b>Likes:</b>  <i>Romance, Metal</i></li>
-                            <li><b>Hates:</b>  <i>Boots, Pancakes</i></li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <b>Loneliness</b>
-                        <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
-                            <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;"></div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
         </div>
     </div>
 
@@ -123,6 +78,20 @@
                             </i>
                         </li>
                     </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="text-align: center;">
+                        <b>Int:</b>
+                        <i><%= this.intelligence %></i>
+                        <b>Fit:</b>
+                        <i><%= this.fitness %></i>
+                        <b>Social:</b>
+                        <i><%= this.social %></i>
+                        <b>Income:</b>
+                        <i><%= this.income %></i>
+                    </div>
                 </td>
             </tr>
             <tr>

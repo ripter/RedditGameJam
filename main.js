@@ -12,17 +12,51 @@ $(document).ready(function() {
         sex: 'Male',
         likes: ['Cheese', 'Kittens'],
         hates: ['Homework', 'Pillows'],
-        loneliness: 80
+        loneliness: 80,
+        intelligence: 80,
+        fitness: 30,
+        social: 10,
+        income: 50
     });
+    clients.push({
+        image: 'img/male2.png',
+        name: 'Dannel Jackson',
+        sex: 'Male',
+        likes: ['Aliens', 'Language'],
+        hates: ['Guns', 'Pollen'],
+        loneliness: 30,
+        intelligence: 90,
+        fitness: 50,
+        social: 70,
+        income: 20
+    });
+
     //Female Profile
     clients.push({
         image: 'img/female1.png',
-        name: 'Jenna Workus',
+        name: 'Jenna Mitcheal',
         sex: 'Female',
         likes: ['Rock', 'Books'],
         hates: ['Cheese', 'Hotdogs'],
-        loneliness: 35
+        loneliness: 35,
+        intelligence: 45,
+        fitness: 65,
+        social: 75,
+        income: 25
     });
+    clients.push({
+        image: 'img/female2.png',
+        name: 'Sam Cater',
+        sex: 'Female',
+        likes: ['Aliens', 'Space'],
+        hates: ['Fishing', 'Boredom'],
+        loneliness: 55,
+        intelligence: 95,
+        fitness: 65,
+        social: 35,
+        income: 75
+    });
+
 
 
     //Build the profile list.
