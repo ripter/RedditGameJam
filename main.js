@@ -92,9 +92,9 @@ function createMenu() {
 
         //Find the client for this profile.
         var client = null;
-        var idx = clients.length - 1;
+        
         console.log('idx', idx);
-        for (var idx = clients.length - 1; idx <= 0; idx--) {
+        for (var idx = clients.length - 1; idx >= 0; idx--) {
             console.log('idx', idx);
             console.log('compaire', clients[idx].id, parseInt(e.currentTarget.id, 10), '==', clients[idx].id == parseInt(e.currentTarget.id, 10));
             if (clients[idx].id == parseInt(e.currentTarget.id, 10)) {
