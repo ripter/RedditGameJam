@@ -3,8 +3,9 @@
 <head>
     <title>Hitch'd</title>
     <meta charset="utf-8" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
+    <script src="jquery-1.4.4.min.js"></script>
+    <script src="jquery-ui-1.8.7.custom.min.js"></script>
+    <link type="text/css" href="css/custom-theme/jquery-ui-1.8.7.custom.css" rel="stylesheet" />
     <style type="text/css">
         #flirt_c {
             border: thin solid black;
@@ -12,6 +13,15 @@
     </style>
 </head>
 <body>
+
+    <div id="manage" class="ui-widget">
+        <h1 class="ui-widget-header ui-corner-top">
+            Manage Clients
+        </h1>
+        <div class="ui-widget-content">
+            <p>Client stuff</p>
+        </div>
+    </div>
 
     <div id="flirt">
 
@@ -32,32 +42,9 @@
             <p id="flirt_int_p"></p>
         </div>
 
-        <div id="fit" class="flirt_bar">
-            <h3>Physical Fitness</h3>
-            <canvas id="flirt_fit" height="30" width="200">
-                You need teh canvas to play, please upgrade your browser.
-            </canvas>
-            <p id="flirt_fit_p"></p>
-        </div>
-
-        <div id="soc" class="flirt_bar">
-            <h3>Socal Status</h3>
-            <canvas id="flirt_soc" height="30" width="200">
-                You need teh canvas to play, please upgrade your browser.
-            </canvas>
-            <p id="flirt_soc_p"></p>
-        </div>
-
-        <div id="inc" class="flirt_bar">
-            <h3>Income</h3>
-            <canvas id="flirt_inc" height="30" width="200">
-                You need teh canvas to play, please upgrade your browser.
-            </canvas>
-            <p id="flirt_inc_p"></p>
-        </div>
-
     </div>
 
+    <script src="challangeBar.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
