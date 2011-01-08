@@ -15,7 +15,7 @@ function runFlirt() {
     var center = width / 2;
 
     var position_context =  $('#flirt_int')[0].getContext('2d');
-    var position = center;
+    var position = 0 | (Math.random() * width);
     var goLeft = true;
     var active_range = 'int';
 
@@ -95,33 +95,41 @@ function runFlirt() {
 
     //Bind on keypress.
     $(document).bind('keydown', function(e) {
-        //Stop the loop
-        clearInterval(interval_id);
         //Figure out where they stopped.
         console.log('Position:', position);
+        var html = position;
+        var display =  $('#' + active_range + ' p');
 
         if ('int' == active_range) {
-            //Show the position
-            $('flirt_int_p').html(position);
             //Change the active range
             active_range = 'fit';
             //Change the context
             position_context =  $('#flirt_fit')[0].getContext('2d');
+            //Figure out which zone they hit
+            if ( position > center - 3 && position < center + 3 ) {
+                html += ' Perfect!';
+            } else if ( position > (center - (int_good_len / 2)) && position < (center + (int_good_len / 2) ) ) {
+                html += ' Good!';
+            } else if ( position > ((center - (int_good_len / 2)) - int_ok_len) && position < ((center + (int_good_len / 2)) + int_ok_len) ) {
+                html += ' Ok!';
+            } else {
+                html += ' Miss!';     
+            }
         } else if ('fit' == active_range) {
-            $('flirt_fit_p').html(position);
             active_range = 'soc';
             position_context =  $('#flirt_soc')[0].getContext('2d');
         } else if ('soc' == active_range) {
-            $('flirt_soc_p').html(position);
             active_range = 'inc';
             position_context =  $('#flirt_inc')[0].getContext('2d');
         } else {
-            $('flirt_inc_p').html(position);
-            cleatInterval(interval_id);
+            clearInterval(interval_id);
         }
 
+        //Show the position
+        display.html(html);
+
         //Reset the position
-        position = center;
+        position = 0 | (Math.random() * width);
 
     });
 }
