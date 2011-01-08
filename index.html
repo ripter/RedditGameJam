@@ -23,6 +23,13 @@
             padding: 10px 4px;
         }
         
+        .client-list {
+            font-size: 12pt;
+            width: 32em;
+        }
+        .client-list td{
+           border: thin solid #ccc; 
+        }
         #males {
             float: left;
         }
@@ -46,11 +53,25 @@
 
 
         <table id="males" class="client-list">
-
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Likes</th>
+                    <th>Hates</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
 
-        <table id="females" class="client_list">
-
+        <table id="females" class="client-list">
+             <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Likes</th>
+                    <th>Hates</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
     </div>
 
@@ -77,6 +98,24 @@
         </div>
 
     </div>
+
+    <script type="text/x-jqote-template" id="tmpl_client_row">
+        <tr>
+            <td>
+                <%= this.name %>
+            </td>
+            <td>
+                <% for (var idx = this.like_list.length-1; idx >= 0; idx--) { %>
+                    <%= this.like_list[idx] %>,
+                <% } %>
+            </td>
+            <td>
+                <% for (var idx = this.hate_list.length-1; idx >= 0; idx--) { %>
+                    <%= this.hate_list[idx] %>,
+                <% } %>
+            </td>
+        </tr>
+    </script>
 
     <script type="text/x-jqote-template" id="tmpl_client_profile">
         <% var id = getUniqueID();

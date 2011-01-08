@@ -16,7 +16,7 @@ function Client(isMale) {
         this.name = first_names_male[0 | (Math.random() * len)];
     } else {
         len = first_names_female.length;
-        this.name = first_names_females[0 | (Math.random() * len)];
+        this.name = first_names_female[0 | (Math.random() * len)];
     }
     //Pick a last name
     len = last_names.length;
@@ -24,18 +24,18 @@ function Client(isMale) {
 
     //Pick the likes
     len = interests.length;
-    var like1 = intrests[0 | (Math.random() * len)];
-    var like2 = intrests[0 | (Math.random() * len)];
+    var like1 = interests[0 | (Math.random() * len)];
+    var like2 = interests[0 | (Math.random() * len)];
     while (like1 == like2) {
-        like2 = intrests[0 | (Math.random() * len)];
+        like2 = interests[0 | (Math.random() * len)];
     }
     this.like_list = [like1, like2];
 
     //Pick the Hates
-    var hate1 = intrests[0 | (Math.random() * len)];
-    var hate2 = intrests[0 | (Math.random() * len)];
+    var hate1 = interests[0 | (Math.random() * len)];
+    var hate2 = interests[0 | (Math.random() * len)];
     while (hate1 == hate2) {
-        hate2 = intrests[0 | (Math.random() * len)];
+        hate2 = interests[0 | (Math.random() * len)];
     }
     this.hate_list = [hate1, hate2];
 }

@@ -6,7 +6,8 @@
 //Holds the last unique id.
 var _unique_id = 1;
 //All the clients in the game.
-var client_list = [];
+var male_client_list = [];
+var female_client_list = [];
 
 //Selected values are used for the menu/controls
 var selected_male = null;
@@ -26,29 +27,29 @@ function getUniqueID() {
 
 
 var interests = [
-    ‘Cooking’,
-    ‘Homework’,
-    ‘Games’,
-    ‘Books’
+    'Cooking',
+    'Homework',
+    'Games',
+    'Books'
 ];
 
 var last_names = [
-    ‘Richards’,
-    ‘Myers’,
-    ‘Weaver’
+    'Richards',
+    'Myers',
+    'Weaver'
 ];
 
 var first_names_male = [
-    ‘Chris’,
-    ‘Hale’,
-    ‘Mark’,
-    ‘John’
+    'Chris',
+    'Hale',
+    'Mark',
+    'John'
 ];
 
 var first_names_female = [
-    ‘Kassi’,
-    ‘Jenni’,
-    ‘Jak’,
-    ‘Kelly’
+    'Kassi',
+    'Jenni',
+    'Jak',
+    'Kelly'
 ];
 
