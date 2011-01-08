@@ -91,7 +91,8 @@ function createMenu() {
     //Create the flirt dialog.
     $('#flirt').dialog({
         autoOpen: false,
-        title: 'Flirt'
+        title: 'Flirt',
+        width: 400
     });
 
     //The Flirt button!
@@ -110,6 +111,9 @@ function createMenu() {
 
             });
 
+            //Set the images.
+            $('#flirt .male').attr('src', selected_male.image);
+            $('#flirt .female').attr('src', selected_female.image);
             $('#flirt').dialog('open');
         }
     });

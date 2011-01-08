@@ -7,3 +7,4 @@
 [male2.png](http://opengameart.org/content/priest-portrait-male)
 [male3.png](http://opengameart.org/content/thief-portrait-male)
 
+[heartshield.png](http://opengameart.org/content/heart-shield)
