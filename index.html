@@ -100,14 +100,28 @@
         <table class="client-profile">
             <tr>
                 <td>
-                    <img src="img/female1.png" height="50" width="50" />
+                    <img src="<%= this.image %>" height="50" width="50" />
                 </td>
                 <td>
-                     <ul>
-                        <li><b>Name:</b> <i>Jenna</i></li>
-                        <li><b>Sex:</b> <i>Female</i></li>
-                        <li><b>Likes:</b>  <i>Romance, Metal</i></li>
-                        <li><b>Hates:</b>  <i>Boots, Pancakes</i></li>
+                    <ul>
+                        <li><b>Name:</b> <i><%= this.name %></i></li>
+                        <li><b>Sex:</b> <i><%= this.sex %></i></li>
+                        <li>
+                            <b>Likes:</b>  
+                            <i>
+                                <% for(var idx = this.likes.length-1; idx >= 0; idx--) { %>
+                                    <%= this.likes[idx] %>,
+                                <% } %>
+                            </i>
+                        </li>
+                        <li>
+                            <b>Hates:</b>  
+                            <i>
+                               <% for(var idx = this.hates.length-1; idx >= 0; idx--) { %>
+                                    <%= this.hates[idx] %>,
+                                <% } %> 
+                            </i>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -115,7 +129,7 @@
                 <td colspan="2">
                     <b>Loneliness</b>
                     <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
-                        <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;"></div>
+                        <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: <%= this.loneliness %>%;"></div>
                     </div>
                 </td>
             </tr>

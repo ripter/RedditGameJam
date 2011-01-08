@@ -10,16 +10,18 @@ $(document).ready(function() {
         image: 'img/male1.png',
         name: 'Steve Wallus',
         sex: 'Male',
-        likes: ['String Cheese', 'Kittens'],
-        hates: ['Homework', 'Pillows']
+        likes: ['Cheese', 'Kittens'],
+        hates: ['Homework', 'Pillows'],
+        loneliness: 80
     });
     //Female Profile
     clients.push({
-        image: 'img/female.png',
+        image: 'img/female1.png',
         name: 'Jenna Workus',
         sex: 'Female',
         likes: ['Rock', 'Books'],
-        hates: ['String Cheese', 'Hotdogs']
+        hates: ['Cheese', 'Hotdogs'],
+        loneliness: 35
     });
 
 
