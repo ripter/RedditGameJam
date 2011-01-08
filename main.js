@@ -9,11 +9,15 @@ $(document).ready(function() {
     createMenu();
 
     //Create some inital people
-    male_client_list.push(new Client(true));
-    male_client_list.push(new Client(true));
+    var len = 10;
+    while( len-- ) {
+        male_client_list.push(new Client(true));
+    }
 
-    female_client_list.push(new Client(false));
-    female_client_list.push(new Client(false));
+    len = 10;
+    while (len--) {
+        female_client_list.push(new Client(false));
+    }
 
     //Now let's draw the tables
     $('#males tbody').jqoteapp('#tmpl_client_row', male_client_list);
