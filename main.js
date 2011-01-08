@@ -55,32 +55,6 @@ function createMenu() {
         }
     });
 
-    //Clicking on a client profile should select them.
-    $('#client_list table').live('click', function(e) {
-        //Find the client for this profile.
-        for (var idx = client_list.length - 1; idx >= 0; idx--) {
-            if (client_list[idx].id == parseInt(e.currentTarget.id, 10)) {
-                //Male or Female?
-                if ('Male' == client_list[idx].sex) {
-                    selected_male = client_list[idx];
-                } else {
-                    selected_female = client_list[idx];
-                }
-                break;
-            }
-        }
-
-        //Clear all of the old selections
-        $('.client-profile').css('border', 'thick solid #ccc');
-
-        //Now Color the male and female
-        if (null != selected_male) {
-            $('#' + selected_male.id).css('border', 'thick solid blue');
-        }
-        if (null != selected_female) {
-             $('#' + selected_female.id).css('border', 'thick solid red');
-        }
-    });
 
     $('.client-list tr').live('click', function(e) {
         //Find the client for this profile
