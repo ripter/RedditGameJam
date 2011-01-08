@@ -18,6 +18,11 @@
         #flirt {
             clear: both;
         }
+
+        #toolbar {
+            padding: 10px 4px;
+        }
+        
     </style>
 </head>
 <body>
@@ -26,6 +31,24 @@
         <h1 class="ui-widget-header ui-corner-top">
             Manage Clients
         </h1>
+
+        <span id="toolbar" class="ui-helper-reset ui-widget-header ui-corner-all">
+            <button id="beginning">go to beginning</button>
+            <button id="rewind">rewind</button>
+            <button id="play">play</button>
+            <button id="stop">stop</button>
+            <button id="forward">fast forward</button>
+            <button id="end">go to end</button>
+            
+            <input type="checkbox" id="shuffle" /><label for="shuffle">Shuffle</label>
+            
+            <span id="repeat">
+                <input type="radio" id="repeat0" name="repeat" checked="checked" /><label for="repeat0">No Repeat</label>
+                <input type="radio" id="repeat1" name="repeat" /><label for="repeat1">Once</label>
+                <input type="radio" id="repeatall" name="repeat" /><label for="repeatall">All</label>
+            </span>
+        </span>
+        
         <div id="client_list" class="ui-widget-content">
         </div>
     </div>
