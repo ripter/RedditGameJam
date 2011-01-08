@@ -24,3 +24,31 @@ function getUniqueID() {
     return _unique_id;
 }
 
+
+var interests = [
+    ‘Cooking’,
+    ‘Homework’,
+    ‘Games’,
+    ‘Books’
+];
+
+var last_names = [
+    ‘Richards’,
+    ‘Myers’,
+    ‘Weaver’
+];
+
+var first_names_male = [
+    ‘Chris’,
+    ‘Hale’,
+    ‘Mark’,
+    ‘John’
+];
+
+var first_names_female = [
+    ‘Kassi’,
+    ‘Jenni’,
+    ‘Jak’,
+    ‘Kelly’
+];
+
