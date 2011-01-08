@@ -88,19 +88,22 @@ $(document).ready(function() {
 function createMenu() {
 
     $('#client_list table').live('click', function(e) {
-        console.log('Live click', e);
+        console.log('Live click', e, 'currentTarget', e.currentTarget, 'clients', clients, clients.length);
 
         //Find the client for this profile.
         var client = null;
-        for (var idx = clients.length-1; idx <= 0; idx--) {
-            console.log("compaire", clients[idx].id, parseInt(e.currentTarget.id, 10), '==', clients[idx].id == parseInt(e.currentTarget.id, 10));
+        var idx = clients.length - 1;
+        console.log('idx', idx);
+        for (var idx = clients.length - 1; idx <= 0; idx--) {
+            console.log('idx', idx);
+            console.log('compaire', clients[idx].id, parseInt(e.currentTarget.id, 10), '==', clients[idx].id == parseInt(e.currentTarget.id, 10));
             if (clients[idx].id == parseInt(e.currentTarget.id, 10)) {
                 client = clients[idx];
                 break;
             }
         }
 
-        console.log("Client is:", client);
+        console.log('Client is:', client);
     });
-    
+
 }
