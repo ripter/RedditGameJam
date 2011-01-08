@@ -64,7 +64,7 @@ $(document).ready(function() {
 
 
     //Build the profile list.
-    $('#client_list').jqoteapp('#tmpl_client_profile', client_list);
+    //$('#client_list').jqoteapp('#tmpl_client_profile', client_list);
 
 
     /*
