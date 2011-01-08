@@ -141,62 +141,6 @@
         </tr>
     </script>
 
-    <script type="text/x-jqote-template" id="tmpl_client_profile">
-        <% var id = getUniqueID();
-            this.id = id; 
-        %>
-        <table id="<%= id %>" class="client-profile">
-            <tr>
-                <td>
-                    <img src="<%= this.image %>"  />
-                </td>
-                <td>
-                    <ul>
-                        <li><b>Name:</b> <i><%= this.name %></i></li>
-                        <li><b>Sex:</b> <i><%= this.sex %></i></li>
-                        <li>
-                            <b>Likes:</b>  
-                            <i>
-                                <% for(var idx = this.likes.length-1; idx >= 0; idx--) { %>
-                                    <%= this.likes[idx] %>,
-                                <% } %>
-                            </i>
-                        </li>
-                        <li>
-                            <b>Hates:</b>  
-                            <i>
-                               <% for(var idx = this.hates.length-1; idx >= 0; idx--) { %>
-                                    <%= this.hates[idx] %>,
-                                <% } %> 
-                            </i>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div style="text-align: center;">
-                        <b>Int:</b>
-                        <i><%= this.intelligence %></i>
-                        <b>Fit:</b>
-                        <i><%= this.fitness %></i>
-                        <b>Social:</b>
-                        <i><%= this.social %></i>
-                        <b>Income:</b>
-                        <i><%= this.income %></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <b>Loneliness</b>
-                    <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
-                        <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: <%= this.loneliness %>%;"></div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </script>
 
     <script src="globals.js"></script>
     <script src="clients.js"></script>
