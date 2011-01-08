@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     //Create some client profiles
         //Male Profile
-    clients.push({
+    client_list.push({
         image: 'img/male1_min.png',
         name: 'Steve Wallus',
         sex: 'Male',
@@ -22,7 +22,7 @@ $(document).ready(function() {
         social: 10,
         income: 50
     });
-    clients.push({
+    client_list.push({
         image: 'img/male2_min.png',
         name: 'Dannel Jackson',
         sex: 'Male',
@@ -36,7 +36,7 @@ $(document).ready(function() {
     });
 
     //Female Profile
-    clients.push({
+    client_list.push({
         image: 'img/female1_min.png',
         name: 'Jenna Mitcheal',
         sex: 'Female',
@@ -48,7 +48,7 @@ $(document).ready(function() {
         social: 75,
         income: 25
     });
-    clients.push({
+    client_list.push({
         image: 'img/female2_min.png',
         name: 'Sam Cater',
         sex: 'Female',
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
 
     //Build the profile list.
-    $('#client_list').jqoteapp('#tmpl_client_profile', clients);
+    $('#client_list').jqoteapp('#tmpl_client_profile', client_list);
 
 
     //Create Challange Data
@@ -87,26 +87,30 @@ $(document).ready(function() {
 
 function createMenu() {
 
+    //Clicking on a client profile should select them.
     $('#client_list table').live('click', function(e) {
         //Find the client for this profile.
-        var client = null;
-
-        for (var idx = clients.length - 1; idx >= 0; idx--) {
-            if (clients[idx].id == parseInt(e.currentTarget.id, 10)) {
-                client = clients[idx];
+        for (var idx = client_list.length - 1; idx >= 0; idx--) {
+            if (client_list[idx].id == parseInt(e.currentTarget.id, 10)) {
+                //Male or Female?
+                if ('Male' == client_list[idx].sex) {
+                    selected_male = client_list[idx];
+                } else {
+                    selected_female = client_list[idx];
+                }
                 break;
             }
         }
+
+        //Clear all of the old selections
+        $('.client-profile').css('border', 'thick solid #ccc');
         
-        //Is it a male for female?
-        if( 'Male' == client.sex ) {
-            //Highlight them in blue.
-            $(e.currentTarget).css('border', 'thick solid blue');
-            selected_male = client;
-        } else {
-            //Highlight them in pink.
-            $(e.currentTarget).css('border', 'thick solid pink');
-            selected_female = client;
+        //Now Color the male and female
+        if( null != selected_male ) {
+            $('#' + selected_male.id).css('border', 'thick solid blue');
+        }
+        if (null != selected_female) {
+             $('#' + selected_female.id).css('border', 'thick solid pink');
         }
 
         console.log('Client is:', client);
