@@ -7,16 +7,10 @@
     <script src="jquery-ui-1.8.7.custom.min.js"></script>
     <link type="text/css" href="css/custom-theme/jquery-ui-1.8.7.custom.css" rel="stylesheet" />
     <style type="text/css">
-        .client_profile {
-            clear: both;
-        }
-        .client_profile img {
-            float: left;
-            height: 100%;
-        }
-        .client_profile p {
-            float: left;
-            padding-left: 1em;
+        .client-profile {
+            border: thin solid #ccc;
+            width: 20em;
+            margin: .5em;
         }
     </style>
 </head>
@@ -27,7 +21,6 @@
             Manage Clients
         </h1>
         <div class="ui-widget-content">
-            <p>Client stuff</p>
 
             <table class="client-profile">
                 <tr>
@@ -36,13 +29,46 @@
                     </td>
                     <td>
                          <ul>
-                            <li><b>Sex:</b><i>Male</i></li>
-                            <li><b>Name:</b><i>Steve</i></li>
-                            <li><b>Likes:</b><i>Coffee, Metal</i></li>
+                            <li><b>Name:</b> <i>Steve</i></li>
+                            <li><b>Sex:</b> <i>Male</i></li>
+                            <li><b>Likes:</b>  <i>Coffee, Metal</i></li>
                         </ul>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <b>Loneliness</b>
+                        <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
+                            <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 77%;"></div>
+                        </div>
+                    </td>
+                </tr>
             </table>
+
+
+            <table class="client-profile">
+                <tr>
+                    <td>
+                        <img src="img/female1.png" height="50" width="50" />
+                    </td>
+                    <td>
+                         <ul>
+                            <li><b>Name:</b> <i>Jenna</i></li>
+                            <li><b>Sex:</b> <i>Female</i></li>
+                            <li><b>Likes:</b>  <i>Romance, Metal</i></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <b>Loneliness</b>
+                        <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all">
+                            <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width: 37%;"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </div>
 
