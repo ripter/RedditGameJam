@@ -17,11 +17,16 @@ function challangeBar(data, callback) {
     //Set the Title
     $(data.container_id + ' .name').html(data.name);
     //Set the hearts 
-    $(data.container_id + ' #progress').empty(); 
-    var idx = data.hearts;
+    $('#progress').empty(); 
+    var idx = data.needed_hearts - data.hearts;
     while (idx--) {
-        $(data.container_id + ' #progress').append('<img src="img/pumpheart.gif" />');
+        $('#progress').append('<img src="img/sadheart.png" />');
     }
+    idx = data.hearts;
+    while (idx--) {
+        $('#progress').append('<img src="img/pumpheart.gif" />');
+    }
+
 
     //Create a loop to run the animation
     var interval_id = setInterval(function() {
@@ -113,7 +118,8 @@ function ChallangeData(name) {
     this.ok = [60, 100];
 
     //Figure out how many hearts are needed.
-    this.hearts = 5;
+    this.needed_hearts = 5;
+    this.hearts = 0;
     var x, y;
 
     //Check intrestes 
@@ -123,14 +129,14 @@ function ChallangeData(name) {
             if (selected_male.like_list[x] == selected_female.like_list[y] ||
                     selected_male.hate_list[x] == selected_female.hate_list[y]) {
                 //They share an intrest, remove a requirement.
-                this.hearts--;
+                this.needed_hearts--;
             }
 
             //Like one of their dislikes?
             if (selected_male.like_list[x] == selected_female.hate_list[y] ||
                     selected_male.hate_list[x] == selected_female.like_list[y]) {
                 //Uhoh, make it harder
-                this.hearts++;
+                this.needed_hearts++;
             }
         }
     }
