@@ -125,7 +125,7 @@
         %>
         <tr id="<%= this.id %>">
             <% if ('Female' == this.sex) { %>
-                <td><%= this.happy %></td>
+                <td class="happy"><%= this.happy %></td>
             <% } %>
             <td>
                 <%= this.name %>
@@ -141,7 +141,7 @@
                 <% } %>
             </td>
             <% if ('Male' == this.sex) { %>
-                    <td><%= this.happy %></td>
+                    <td class="happy"><%= this.happy %></td>
             <% } %>
         </tr>
     </script>

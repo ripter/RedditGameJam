@@ -222,19 +222,26 @@ function challangeLoop(game_data) {
             
             //Did it go well?
             var percent = game_data.hearts / game_data.needed_hearts;
-            if (0.8 >= percent) {
+            console.log('percent', percent);
+            if (0.8 <= percent) {
                 alert("The Date went great! Happyness greatly increased!");
                 selected_male.happy += 30;
                 selected_female.happy += 20;
-            } else if (0.5 >= percent) {
+            } else if (0.5 <= percent) {
                 alert("The date went well.");
                 selected_male.happy += 10;
                 selected_female.happy += 8;
             } else {
                 alert("Uh oh, the data didn't go very well.");
-                selected_male.happy -= 15;
-                selected_female.happy -= 10;
+                selected_male.happy -= 25;
+                selected_female.happy -= 20;
             }
+            //Mark that they had a date
+            selected_male.hadDate = true;
+            selected_female.hadDate = true;
+            //Update the display
+            $('#' + selected_male.id + ' .happy').html(selected_male.happy);
+            $('#' + selected_female.id + ' .happy').html(selected_female.happy);
 
             //Start the main game back up
             startGameLoop();

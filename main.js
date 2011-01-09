@@ -126,6 +126,8 @@ function gameTimer() {
         if (!client.hadDate) {
             client.happy -= 0 | (Math.random() * 10) + 2;
         }
+        //Reset the date check
+        client.hadDate = false;
         //if they have no happyness, then remove them from the list.
         if (client.happy <= 0) {
             male_delete.push(idx);
@@ -138,6 +140,8 @@ function gameTimer() {
         if (!client.hadDate) {
             client.happy -= 0 | (Math.random() * 5) + 1;
         }
+        //Reset the date check
+        client.hadDate = false;
         //if they have no happyness, then remove them from the list.
         if (client.happy <= 0) {
             female_delete.push(idx);
