@@ -105,21 +105,9 @@ function ChallangeData(name) {
     this.name = name;
 
     //Let's figure out the zones
+    var good = 40;
+    var ok = 100;
 
-    //Subtract?
-    var bad = selected_male[name] - selected_female[name];
-    var ok = 200 - bad;
-    var good = bad - ok;
-
-    //Set the ranges
-    this.perfect = [0 | (Math.random() * 100), 4];
-    this.good = [0 | (Math.random() * 100), good];
-    this.ok = [0 | (Math.random() * 100), ok];
-    this.bad = [0 | (Math.random() * 100), bad];
-
-    this.perfect = [90, 4];
-    this.good = [80, 40];
-    this.ok = [60, 100];
 
     //Figure out how many hearts are needed.
     this.needed_hearts = 5;
@@ -135,6 +123,9 @@ function ChallangeData(name) {
                     selected_male.hate_list[x] == selected_female.hate_list[y]) {
                 //They share an intrest, remove a requirement.
                 this.needed_hearts--;
+                //Increate the good zone
+                good += 10;
+                ok -= 5;
             }
 
             //Like one of their dislikes?
@@ -142,9 +133,18 @@ function ChallangeData(name) {
                     selected_male.hate_list[x] == selected_female.like_list[y]) {
                 //Uhoh, make it harder
                 this.needed_hearts++;
+                //Adjust the zones
+                good -= 15;
+                ok += 5;
             }
         }
     }
+
+    //Set the ranges
+    this.perfect = [0 | (Math.random() * 100), 4];
+    this.good = [0 | (Math.random() * 100), good];
+    this.ok = [0 | (Math.random() * 100), ok];
+
 }
 
 /**
