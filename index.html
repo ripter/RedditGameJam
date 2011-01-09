@@ -49,8 +49,7 @@
             Manage Clients
         </h1>
 
-        <button id="btn_flirt" type="button">Flirt!</button>
-
+        
         <b id="time">Week 1</b>
         <b id="money">Cash: $100</b>
 
@@ -82,6 +81,8 @@
                     </table>
                 </td>
                 <td>
+                    <!-- The controls -->
+                    <button id="btn_flirt" type="button">Flirt!</button>
 
                 </td>
                 <td>
@@ -103,9 +104,12 @@
 
     <div id="flirt">
 
-        <img class="male" />
         <img src="img/heartshield_min.png" />
-        <img class="female" />
+        <img src="img/pumpheart.gif" />
+        
+        <p>
+            Press any key to stop the slider.
+        </p>
 
         <div id="challange">
             <h2 class="name"></h2>
@@ -114,15 +118,7 @@
             </canvas>
         </div>
 
-        <h1>Flirt!</h1>
-        <div id="int" class="flirt_bar">
-            <h3>Intelligence</h3>
-            <canvas id="flirt_int" height="30" width="200">
-                You need teh canvas to play, please upgrade your browser.
-            </canvas>
-            <p id="flirt_int_p"></p>
-        </div>
-
+        <div id="progress"></div>
     </div>
 
     <script type="text/x-jqote-template" id="tmpl_client_row">

@@ -1,6 +1,3 @@
-//Hold a list of all the clients
-var clients = [];
-
 /**
  * Main Game Code
  */
@@ -26,7 +23,7 @@ $(document).ready(function() {
 
 function setup() {
     //Set the game timer
-    setInterval(gameTimer, 5000);
+    game_loop_id = setInterval(gameTimer, 5000);
 
 
     //Create the flirt dialog.
@@ -44,17 +41,15 @@ function setup() {
         } else {
             //Let's play the flirting game!
 
-            challangeBar(new ChallangeData('intelligence'), function(zone, img) {
+            challangeBar(new ChallangeData('Level 1'), function(zone, img) {
                 console.log('Hit zone: ', zone);
                 //Diplay the image
-                var context = $('#flirt_int')[0].getContext('2d');
-                context.putImageData(img, 0, 0);
+                //var context = $('#flirt_int')[0].getContext('2d');
+                //context.putImageData(img, 0, 0);
 
             });
 
             //Set the images.
-            $('#flirt .male').attr('src', selected_male.image);
-            $('#flirt .female').attr('src', selected_female.image);
             $('#flirt').dialog('open');
         }
     });
@@ -155,5 +150,11 @@ function gameTimer() {
     }
     if (null != selected_female) {
         $('#' + selected_female.id + ' td').css('border', 'thick solid pink');
+    }
+
+    //Stop the game if no one is left.
+    if ( 0 == male_client_list.length && 0 == female_client_list) {
+        clearInterval(game_loop_id);
+        alert('Game Over!');
     }
 }

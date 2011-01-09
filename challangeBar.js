@@ -5,6 +5,7 @@
  *        zone name and an image of the user's final position.
  */
 function challangeBar(data, callback) {
+    console.log('data', data);
     var canvas = $(data.container_id + ' canvas');
     var context = canvas[0].getContext('2d');
 
@@ -15,9 +16,13 @@ function challangeBar(data, callback) {
 
     //Set the Title
     $(data.container_id + ' .name').html(data.name);
+    //Set the hearts 
+    $(data.container_id + ' #progress').empty(); 
+    var idx = data.hearts;
+    while (idx--) {
+        $(data.container_id + ' #progress').append('<img src="img/pumpheart.gif" />');
+    }
 
-    context.fillStyle = 'orange';
-    context.fillRect(0, 0, 200, 30);
     //Create a loop to run the animation
     var interval_id = setInterval(function() {
         //Draw the FAIL zone
@@ -107,5 +112,26 @@ function ChallangeData(name) {
     this.good = [80, 40];
     this.ok = [60, 100];
 
+    //Figure out how many hearts are needed.
+    this.hearts = 5;
+    var x, y;
 
+    //Check intrestes 
+    for (x = 0; x < 2; x++) {
+        for (y = 0; y < 2; y++) {
+            //Matching Likes?
+            if (selected_male.like_list[x] == selected_female.like_list[y] ||
+                    selected_male.hate_list[x] == selected_female.hate_list[y]) {
+                //They share an intrest, remove a requirement.
+                this.hearts--;
+            }
+
+            //Like one of their dislikes?
+            if (selected_male.like_list[x] == selected_female.hate_list[y] ||
+                    selected_male.hate_list[x] == selected_female.like_list[y]) {
+                //Uhoh, make it harder
+                this.hearts++;
+            }
+        }
+    }
 }
