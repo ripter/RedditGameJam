@@ -5,7 +5,6 @@
  *        zone name and an image of the user's final position.
  */
 function challangeBar(data, speed, callback) {
-    console.log('data', data);
     var canvas = $(data.container_id + ' canvas');
     var context = canvas[0].getContext('2d');
 
@@ -104,9 +103,9 @@ function ChallangeData(name) {
     this.container_id = '#challange';
     this.name = name;
 
-    //Let's figure out the zones
-    var good = 40;
-    var ok = 100;
+    //Set the starting zone size
+    var good = 30;
+    var ok = 60;
 
 
     //Figure out how many hearts are needed.

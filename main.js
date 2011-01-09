@@ -195,9 +195,15 @@ function gameTimer() {
     }
 
     //Stop the game if no one is left.
-    if ( 0 == male_client_list.length && 0 == female_client_list) {
+    if ( 0 == male_client_list.length || 0 == female_client_list) {
         stopGameLoop();
-        console.log('Game Over!');
-        //alert('Game Over!');
+        $('<div><p>Game over!</p><p>Your Score: '+ money +'</p></div>')
+                .dialog({
+                    'title': 'Congratulations',
+                    'modal': true,
+                    'buttons': {
+                        'Ok': function() { $(this).dialog('close'); }
+                    }
+                });
     }
 }
