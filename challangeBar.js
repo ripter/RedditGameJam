@@ -221,7 +221,7 @@ function challangeLoop(game_data) {
             var percent = game_data.hearts / game_data.needed_hearts;
             if (0.9 <= percent) {
                 //alert("The Date went great! Happyness greatly increased!");
-                $('<div><p>The Date went great! Happyness greatly increased!</p></div>')
+                $('<div><p>The Date went great! Happiness greatly increased!</p></div>')
                 .dialog({
                     'title': 'Results',
                     'modal': true

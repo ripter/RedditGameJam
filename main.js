@@ -46,7 +46,7 @@ function setup() {
         } else {
             //Let's play the flirting game!
             //Stop the timer
-            //stopGameLoop();
+            stopGameLoop();
             
             //Mark that they had a date
             selected_male.hadDate = true;
@@ -103,7 +103,7 @@ function setup() {
     var msg = '<div>';
     msg += '<h1>Welcome to Hitch\'d.</h1>';
     msg += '<p>You are running a dating service, help people find true love by teaching them to flirt!</p>';
-    msg += '<p>Each week, you can select a man and a woman and help them flirt. People that don\'t flirt each week will lose happyness. If the date goes well, happyness increases. Getting someone to full happyness gives you a bonus before they leave.';
+    msg += '<p>Each week, you can select a man and a woman and help them flirt. People that don\'t flirt each week will lose happiness. If the date goes well, happiness increases. Getting someone to full happiness gives you a bonus before they leave.';
     msg += '</div>';
      $(msg)
         .dialog({
