@@ -6,12 +6,12 @@ $(document).ready(function() {
     setup();
 
     //Create some inital people
-    var len = 10;
+    var len = 12;
     while( len-- ) {
         male_client_list.push(new Client(true));
     }
 
-    len = 10;
+    len = 7;
     while (len--) {
         female_client_list.push(new Client(false));
     }
@@ -46,7 +46,7 @@ function setup() {
         } else {
             //Let's play the flirting game!
             //Stop the timer
-            stopGameLoop();
+            //stopGameLoop();
             
             //Mark that they had a date
             selected_male.hadDate = true;
@@ -181,7 +181,7 @@ function gameTimer() {
         client = female_client_list[idx];
         //Women don't lose happyness as fast as men
         if (!client.hadDate) {
-            client.happy -= 0 | (Math.random() * 5) + 1;
+            client.happy -= 0 | (Math.random() * 10) + 1;
         }
         //Reset the date check
         client.hadDate = false;
