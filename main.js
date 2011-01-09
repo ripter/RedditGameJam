@@ -64,7 +64,9 @@ function setup() {
             //Find the client for this profile.
             for (var idx = male_client_list.length - 1; idx >= 0; idx--) {
                 if (male_client_list[idx].id == parseInt(e.currentTarget.id, 10)) {
-                    selected_male = male_client_list[idx];
+                    if (!male_client_list[idx].hadDate) {
+                        selected_male = male_client_list[idx];
+                    }
                     break;
                 }
             }
@@ -76,7 +78,9 @@ function setup() {
             //Find the client for this profile.
             for (var idx = female_client_list.length - 1; idx >= 0; idx--) {
                 if (female_client_list[idx].id == parseInt(e.currentTarget.id, 10)) {
-                    selected_female = female_client_list[idx];
+                    if (!female_client_list[idx].hadDate) {
+                        selected_female = female_client_list[idx];
+                    }
                     break;
                 }
             }
@@ -92,7 +96,7 @@ function setup() {
 function startGameLoop() {
     if (!running_game) {
         running_game = true;
-        game_loop_id = setInterval(gameTimer, 5000);
+        game_loop_id = setInterval(gameTimer, 10000);
     }
 }
 /**

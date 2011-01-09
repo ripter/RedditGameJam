@@ -242,6 +242,17 @@ function challangeLoop(game_data) {
             //Update the display
             $('#' + selected_male.id + ' .happy').html(selected_male.happy);
             $('#' + selected_female.id + ' .happy').html(selected_female.happy);
+            //Unselect them both.
+            $('#' + selected_male.id + ' td').css({
+                'border': 'thin solid #ccc',
+                'background-color': '#ccc'
+            });
+            $('#' + selected_female.id + ' td').css({
+                'border': 'thin solid #ccc',
+                'background-color': '#ccc'
+            });
+            selected_male = null;
+            selected_female = null;
 
             //Start the main game back up
             startGameLoop();
