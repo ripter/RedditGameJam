@@ -94,9 +94,6 @@ function challangeBar(data, speed, callback) {
 }
 
 
-function challangeAnimation() {
-
-}
 
 /**
  * Creates the challange data from the selected male & female.
@@ -228,10 +225,7 @@ function challangeLoop(game_data) {
                 $('<div><p>The Date went great! Happyness greatly increased!</p></div>')
                 .dialog({
                     'title': 'Results',
-                    'modal': true,
-                    'buttons': {
-                        'Ok': function() { $(this).dialog('close'); }
-                    }
+                    'modal': true
                 });
                 selected_male.happy += 30;
                 selected_female.happy += 20;
@@ -240,10 +234,7 @@ function challangeLoop(game_data) {
                 $('<div><p>The date went well.</p></div>')
                 .dialog({
                     'title': 'Results',
-                    'modal': true,
-                    'buttons': {
-                        'Ok': function() { $(this).dialog('close'); }
-                    }
+                    'modal': true
                 });
 
                 selected_male.happy += 10;
@@ -253,10 +244,7 @@ function challangeLoop(game_data) {
                 $('<div><p>Uh oh, the data didn\'t go very well.</p></div>')
                 .dialog({
                     'title': 'Results',
-                    'modal': true,
-                    'buttons': {
-                        'Ok': function() { $(this).dialog('close'); }
-                    }
+                    'modal': true
                 });
 
                 selected_male.happy -= 25;
