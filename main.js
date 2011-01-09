@@ -23,8 +23,7 @@ $(document).ready(function() {
 
 function setup() {
     //Set the game timer
-    game_loop_id = setInterval(gameTimer, 5000);
-
+    startGameLoop();
 
     //Create the flirt dialog.
     $('#flirt').dialog({
@@ -40,7 +39,10 @@ function setup() {
             alert('You must select a Male and a Female to flirt');
         } else {
             //Let's play the flirting game!
+            //Stop the timer
+            stopGameLoop();
 
+            //Create the Challange bar
             challangeBar(new ChallangeData('Level 1'), function(zone, img) {
                 console.log('Hit zone: ', zone);
                 //Diplay the image
@@ -87,6 +89,19 @@ function setup() {
 
 
     });
+}
+
+/**
+ * Starts the game loop
+ */
+function startGameLoop() {
+    game_loop_id = setInterval(gameTimer, 5000);
+}
+/**
+ * Stops the Game Loop
+ */
+function stopGameLoop() {
+    clearInterval(game_loop_id);
 }
 
 function gameTimer() {
@@ -154,7 +169,7 @@ function gameTimer() {
 
     //Stop the game if no one is left.
     if ( 0 == male_client_list.length && 0 == female_client_list) {
-        clearInterval(game_loop_id);
+        stopGameLoop();
         alert('Game Over!');
     }
 }

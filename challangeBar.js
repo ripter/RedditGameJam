@@ -22,6 +22,10 @@ function challangeBar(data, callback) {
     while (idx--) {
         $('#progress').append('<img src="img/sadheart.png" />');
     }
+    idx = data.deadhearts;
+    while (idx--) {
+        $('#progress').append('<img src="img/deadheart.png" />');
+    }
     idx = data.hearts;
     while (idx--) {
         $('#progress').append('<img src="img/pumpheart.gif" />');
@@ -120,6 +124,7 @@ function ChallangeData(name) {
     //Figure out how many hearts are needed.
     this.needed_hearts = 5;
     this.hearts = 0;
+    this.deadhearts = 0;
     var x, y;
 
     //Check intrestes 
