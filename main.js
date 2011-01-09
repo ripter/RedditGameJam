@@ -154,7 +154,7 @@ function gameTimer() {
     //Income
     money += 3 * female_client_list.length;
     money += 10 * male_client_list.length;
-    $('#money').html('Cash: $' + money);
+    $('#money').html('Score: ' + money);
 
     //Check everyone.
     idx = male_client_list.length;
