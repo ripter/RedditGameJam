@@ -38,8 +38,8 @@ function challangeBar(data, speed, callback) {
             context.fillStyle = 'green';
             context.fillRect(data.good[0], 0, data.good[1], height);
             //Draw the PERFECT zone
-            context.fillStyle = 'orange';
-            context.fillRect(data.perfect[0], 0, data.perfect[1], height);
+            //context.fillStyle = 'orange';
+            //context.fillRect(data.perfect[0], 0, data.perfect[1], height);
 
             //Draw the position marker
             context.fillStyle = 'blue';
