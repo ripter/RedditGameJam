@@ -16,7 +16,10 @@ var selected_female = null;
 //Keep track of the week counter
 var week_count = 1;
 var money = 100;
+var running_game = false;
+var running_animation = false;
 var game_loop_id = 0;
+var animation_loop_id = 0;
 
 
 /**

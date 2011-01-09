@@ -33,40 +33,46 @@ function challangeBar(data, callback) {
 
 
     //Create a loop to run the animation
-    var interval_id = setInterval(function() {
-        //Draw the FAIL zone
-        context.fillStyle = 'red';
-        context.fillRect(0, 0, width, height);
-        context.fillRect(0, 0, 200, 15);
-        //Draw the OK zone
-        context.fillStyle = 'yellow';
-        context.fillRect(data.ok[0], 0, data.ok[1], height);
-        //Draw the GOOD zone
-        context.fillStyle = 'green';
-        context.fillRect(data.good[0], 0, data.good[1], height);
-        //Draw the PERFECT zone
-        context.fillStyle = 'orange';
-        context.fillRect(data.perfect[0], 0, data.perfect[1], height);
+    if (!running_animation) {
+        //Mark that the animation is running
+        running_animation = true;
+        //Start the timer
+        animation_loop_id = setInterval(function() {
+            //Draw the FAIL zone
+            context.fillStyle = 'red';
+            context.fillRect(0, 0, width, height);
+            context.fillRect(0, 0, 200, 15);
+            //Draw the OK zone
+            context.fillStyle = 'yellow';
+            context.fillRect(data.ok[0], 0, data.ok[1], height);
+            //Draw the GOOD zone
+            context.fillStyle = 'green';
+            context.fillRect(data.good[0], 0, data.good[1], height);
+            //Draw the PERFECT zone
+            context.fillStyle = 'orange';
+            context.fillRect(data.perfect[0], 0, data.perfect[1], height);
 
-        //Draw the position marker
-        context.fillStyle = 'blue';
-        context.fillRect(position, 0, 4, height);
-        //Update the position
-        if (goLeft && position >= (width - 3)) {
-            goLeft = false;
-        } else if (!goLeft && position <= 0) {
-            goLeft = true;
-        }
+            //Draw the position marker
+            context.fillStyle = 'blue';
+            context.fillRect(position, 0, 4, height);
+            //Update the position
+            if (goLeft && position >= (width - 3)) {
+                goLeft = false;
+            } else if (!goLeft && position <= 0) {
+                goLeft = true;
+            }
 
-        if (goLeft) { position++; }
-        else { position--; }
+            if (goLeft) { position++; }
+            else { position--; }
 
-    }, 20);
+        }, 20);
+    }
 
     //Handle any keypress
     $(document).bind('keydown', function(e) {
         //Stop the position
-        clearInterval(interval_id);
+        running_animation = false;
+        clearInterval(animation_loop_id);
         //Get the image data
         var image_data = context.getImageData(0, 0, width, height);
         //figure out which zone its in
@@ -94,13 +100,17 @@ function challangeBar(data, callback) {
     });
 }
 
+
+function challangeAnimation() {
+
+}
+
 /**
  * Creates the challange data from the selected male & female.
  * @constructor
  * @param {String} name the status property to use
  */
 function ChallangeData(name) {
-
     this.container_id = '#challange';
     this.name = name;
 
@@ -199,12 +209,11 @@ function challangeLoop(game_data) {
             //recursive call
             challangeLoop(game_data);
         } else {
+            console.log('prompt closed, starting game again');
             //Close the prompt
             $('#flirt').dialog('close');
             //Start the main game back up
             startGameLoop();
         }
     });
-
-    
 }

@@ -90,12 +90,16 @@ function setup() {
  * Starts the game loop
  */
 function startGameLoop() {
-    game_loop_id = setInterval(gameTimer, 5000);
+    if (!running_game) {
+        running_game = true;
+        game_loop_id = setInterval(gameTimer, 5000);
+    }
 }
 /**
  * Stops the Game Loop
  */
 function stopGameLoop() {
+    running_game = false;
     clearInterval(game_loop_id);
 }
 
@@ -165,6 +169,7 @@ function gameTimer() {
     //Stop the game if no one is left.
     if ( 0 == male_client_list.length && 0 == female_client_list) {
         stopGameLoop();
-        alert('Game Over!');
+        console.log('Game Over!');
+        //alert('Game Over!');
     }
 }
