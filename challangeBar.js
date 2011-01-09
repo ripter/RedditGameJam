@@ -16,21 +16,7 @@ function challangeBar(data, callback) {
 
     //Set the Title
     $(data.container_id + ' .name').html(data.name);
-    //Set the hearts 
-    $('#progress').empty(); 
-    var idx = data.needed_hearts - data.hearts;
-    while (idx--) {
-        $('#progress').append('<img src="img/sadheart.png" />');
-    }
-    idx = data.deadhearts;
-    while (idx--) {
-        $('#progress').append('<img src="img/deadheart.png" />');
-    }
-    idx = data.hearts;
-    while (idx--) {
-        $('#progress').append('<img src="img/pumpheart.gif" />');
-    }
-
+    
 
     //Create a loop to run the animation
     if (!running_animation) {
@@ -73,6 +59,9 @@ function challangeBar(data, callback) {
         //Stop the position
         running_animation = false;
         clearInterval(animation_loop_id);
+        //Unbind
+        $(document).unbind('keydown');
+
         //Get the image data
         var image_data = context.getImageData(0, 0, width, height);
         //figure out which zone its in
@@ -195,6 +184,21 @@ function challangeLoop(game_data) {
     //Create the challange data
     var challange_data = new ChallangeData('Level ' + game_data.level);
 
+    //Set the hearts 
+    $('#progress').empty(); 
+    var idx = game_data.needed_hearts - game_data.hearts;
+    while (idx--) {
+        $('#progress').append('<img src="img/sadheart.png" />');
+    }
+    idx = game_data.deadhearts;
+    while (idx--) {
+        $('#progress').append('<img src="img/deadheart.png" />');
+    }
+    idx = game_data.hearts;
+    while (idx--) {
+        $('#progress').append('<img src="img/pumpheart.gif" />');
+    }
+
     //Run the challange
     challangeBar( challange_data, function(zone, img) {
         //Which zone?
@@ -203,17 +207,38 @@ function challangeLoop(game_data) {
         } else if ('miss' == zone) {
             game_data.deadhearts++;
         }
+        console.log('zone', zone, 'hearts', game_data.hearts, 'deadhearts', game_data.deadhearts, 'needed hearts', game_data.needed_hearts);
+
         //As long as we haven't reached the nessary number of hearts
         if (game_data.needed_hearts > (game_data.hearts + game_data.deadhearts)){
             game_data.level++;
+            console.log("upped level, calling recursive");
             //recursive call
             challangeLoop(game_data);
         } else {
             console.log('prompt closed, starting game again');
             //Close the prompt
             $('#flirt').dialog('close');
+            
+            //Did it go well?
+            var percent = game_data.hearts / game_data.needed_hearts;
+            if (0.8 >= percent) {
+                alert("The Date went great! Happyness greatly increased!");
+                selected_male.happy += 30;
+                selected_female.happy += 20;
+            } else if (0.5 >= percent) {
+                alert("The date went well.");
+                selected_male.happy += 10;
+                selected_female.happy += 8;
+            } else {
+                alert("Uh oh, the data didn't go very well.");
+                selected_male.happy -= 15;
+                selected_female.happy -= 10;
+            }
+
             //Start the main game back up
             startGameLoop();
+
         }
     });
 }
