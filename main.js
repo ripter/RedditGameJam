@@ -108,13 +108,16 @@ function setup() {
      $(msg)
         .dialog({
             'title': 'Hitch\'d',
-            'modal': true,
+            modal: true,
             'width': 500,
             'buttons': {
                 'Let\'s Play': function() {
-                     //Set the game timer
-                    startGameLoop();
+                    $(this).dialog('close');
                 }
+            },
+            beforeClose: function() {
+                //Set the game timer
+                startGameLoop();
             }
         });
 

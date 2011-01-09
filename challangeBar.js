@@ -226,8 +226,8 @@ function challangeLoop(game_data) {
                     'title': 'Results',
                     'modal': true
                 });
-                selected_male.happy += 30;
-                selected_female.happy += 20;
+                selected_male.happy += 20;
+                selected_female.happy += 35;
             } else if (0.7 <= percent) {
                 //alert("The date went well.");
                 $('<div><p>The date went well.</p></div>')
@@ -236,8 +236,8 @@ function challangeLoop(game_data) {
                     'modal': true
                 });
 
-                selected_male.happy += 10;
-                selected_female.happy += 8;
+                selected_male.happy += 8;
+                selected_female.happy += 18;
             } else {
                 //alert("Uh oh, the data didn't go very well.");
                 $('<div><p>Uh oh, the data didn\'t go very well.</p></div>')
