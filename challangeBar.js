@@ -219,7 +219,7 @@ function challangeLoop(game_data) {
             
             //Did it go well?
             var percent = game_data.hearts / game_data.needed_hearts;
-            if (0.8 <= percent) {
+            if (0.9 <= percent) {
                 //alert("The Date went great! Happyness greatly increased!");
                 $('<div><p>The Date went great! Happyness greatly increased!</p></div>')
                 .dialog({
@@ -228,7 +228,7 @@ function challangeLoop(game_data) {
                 });
                 selected_male.happy += 30;
                 selected_female.happy += 20;
-            } else if (0.5 <= percent) {
+            } else if (0.7 <= percent) {
                 //alert("The date went well.");
                 $('<div><p>The date went well.</p></div>')
                 .dialog({
@@ -249,9 +249,6 @@ function challangeLoop(game_data) {
                 selected_male.happy -= 25;
                 selected_female.happy -= 20;
             }
-            //Mark that they had a date
-            selected_male.hadDate = true;
-            selected_female.hadDate = true;
             //Update the display
             $('#' + selected_male.id + ' .happy').html(selected_male.happy);
             $('#' + selected_female.id + ' .happy').html(selected_female.happy);

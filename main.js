@@ -48,7 +48,11 @@ function setup() {
         } else {
             //Let's play the flirting game!
             //Stop the timer
-            stopGameLoop();
+            //stopGameLoop();
+            
+            //Mark that they had a date
+            selected_male.hadDate = true;
+            selected_female.hadDate = true;
 
             //Set the images.
             $('#flirt').dialog('open');
