@@ -4,7 +4,7 @@
  * @param {function} callback returns the
  *        zone name and an image of the user's final position.
  */
-function challangeBar(data, callback) {
+function challangeBar(data, speed, callback) {
     console.log('data', data);
     var canvas = $(data.container_id + ' canvas');
     var context = canvas[0].getContext('2d');
@@ -12,7 +12,11 @@ function challangeBar(data, callback) {
     var height = 30;
     var width = 200;
     var position = 0 | (Math.random() * width);
+    //Start left or right?
     var goLeft = true;
+    if (0 == (0 | (Math.random() * 2))) {
+        goLeft = false;
+    }
 
     //Set the Title
     $(data.container_id + ' .name').html(data.name);
@@ -48,8 +52,8 @@ function challangeBar(data, callback) {
                 goLeft = true;
             }
 
-            if (goLeft) { position++; }
-            else { position--; }
+            if (goLeft) { position += speed }
+            else { position -= speed }
 
         }, 20);
     }
@@ -200,29 +204,25 @@ function challangeLoop(game_data) {
     }
 
     //Run the challange
-    challangeBar( challange_data, function(zone, img) {
+    challangeBar( challange_data, game_data.level, function(zone, img) {
         //Which zone?
         if ('good' == zone || 'perfect' == zone) {
             game_data.hearts++;
         } else if ('miss' == zone) {
             game_data.deadhearts++;
         }
-        console.log('zone', zone, 'hearts', game_data.hearts, 'deadhearts', game_data.deadhearts, 'needed hearts', game_data.needed_hearts);
 
         //As long as we haven't reached the nessary number of hearts
         if (game_data.needed_hearts > (game_data.hearts + game_data.deadhearts)){
             game_data.level++;
-            console.log("upped level, calling recursive");
             //recursive call
             challangeLoop(game_data);
         } else {
-            console.log('prompt closed, starting game again');
             //Close the prompt
             $('#flirt').dialog('close');
             
             //Did it go well?
             var percent = game_data.hearts / game_data.needed_hearts;
-            console.log('percent', percent);
             if (0.8 <= percent) {
                 //alert("The Date went great! Happyness greatly increased!");
                 $('<div><p>The Date went great! Happyness greatly increased!</p></div>')
@@ -250,7 +250,7 @@ function challangeLoop(game_data) {
                 selected_female.happy += 8;
             } else {
                 //alert("Uh oh, the data didn't go very well.");
-                $('<div><p>Uh oh, the data didn't go very well.</p></div>')
+                $('<div><p>Uh oh, the data didn\'t go very well.</p></div>')
                 .dialog({
                     'title': 'Results',
                     'modal': true,
