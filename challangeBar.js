@@ -203,6 +203,7 @@ function challangeLoop(game_data) {
             $('#flirt').dialog('close');
             //Start the main game back up
             startGameLoop();
+        }
     });
 
     
