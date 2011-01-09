@@ -146,3 +146,64 @@ function ChallangeData(name) {
         }
     }
 }
+
+/**
+ * Creates a Challange Game Object
+ * @constructor
+ */
+function ChallangeGame() {
+    this.level = 1;
+    this.needed_hearts = 5;
+    this.hearts = 0;
+    this.deadhearts = 0;
+    var x, y;
+
+    //Check intrestes 
+    for (x = 0; x < 2; x++) {
+        for (y = 0; y < 2; y++) {
+            //Matching Likes?
+            if (selected_male.like_list[x] == selected_female.like_list[y] ||
+                    selected_male.hate_list[x] == selected_female.hate_list[y]) {
+                //They share an intrest, remove a requirement.
+                this.needed_hearts--;
+            }
+
+            //Like one of their dislikes?
+            if (selected_male.like_list[x] == selected_female.hate_list[y] ||
+                    selected_male.hate_list[x] == selected_female.like_list[y]) {
+                //Uhoh, make it harder
+                this.needed_hearts++;
+            }
+        }
+    }
+}
+
+/**
+ * Runs a challange game.
+ */
+function challangeLoop(game_data) {
+    //Create the challange data
+    var challange_data = new ChallangeData('Level ' + game_data.level);
+
+    //Run the challange
+    challangeBar( challange_data, function(zone, img) {
+        //Which zone?
+        if ('good' == zone || 'perfect' == zone) {
+            game_data.hearts++;
+        } else if ('miss' == zone) {
+            game_data.deadhearts++;
+        }
+        //As long as we haven't reached the nessary number of hearts
+        if (game_data.needed_hearts > (game_data.hearts + game_data.deadhearts)){
+            game_data.level++;
+            //recursive call
+            challangeLoop(game_data);
+        } else {
+            //Close the prompt
+            $('#flirt').dialog('close');
+            //Start the main game back up
+            startGameLoop();
+    });
+
+    
+}

@@ -42,18 +42,12 @@ function setup() {
             //Stop the timer
             stopGameLoop();
 
-            //Create the Challange bar
-            var data = new ChallangeData('Level 1');
-            challangeBar(data, function(zone, img) {
-                console.log('Hit zone: ', zone);
-                //Diplay the image
-                //var context = $('#flirt_int')[0].getContext('2d');
-                //context.putImageData(img, 0, 0);
-
-            });
-
             //Set the images.
             $('#flirt').dialog('open');
+
+            //Run the challange minigame
+            challangeLoop(new ChallangeGame());
+
         }
     });
 
