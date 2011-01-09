@@ -43,7 +43,8 @@ function setup() {
             stopGameLoop();
 
             //Create the Challange bar
-            challangeBar(new ChallangeData('Level 1'), function(zone, img) {
+            var data = new ChallangeData('Level 1');
+            challangeBar(data, function(zone, img) {
                 console.log('Hit zone: ', zone);
                 //Diplay the image
                 //var context = $('#flirt_int')[0].getContext('2d');
