@@ -22,9 +22,7 @@ $(document).ready(function() {
 });
 
 function setup() {
-    //Set the game timer
-    startGameLoop();
-
+    
     //Create the flirt dialog.
     $('#flirt').dialog({
         autoOpen: false,
@@ -101,6 +99,26 @@ function setup() {
 
 
     });
+
+    var msg = '<div>';
+    msg += '<h1>Welcome to Hitch\'d.</h1>';
+    msg += '<p>You are running a dating service, help people find true love by teaching them to flirt!</p>';
+    msg += '<p>Each week, you can select a man and a woman and help them flirt. People that don\'t flirt each week will lose happyness. If the date goes well, happyness increases. Getting someone to full happyness gives you a bonus before they leave.';
+    msg += '</div>';
+     $(msg)
+        .dialog({
+            'title': 'Hitch\'d',
+            'modal': true,
+            'width': 500,
+            'buttons': {
+                'Let\'s Play': function() {
+                     //Set the game timer
+                    startGameLoop();
+                }
+            }
+        });
+
+   
 }
 
 /**
