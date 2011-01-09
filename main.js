@@ -29,14 +29,22 @@ function setup() {
     $('#flirt').dialog({
         autoOpen: false,
         title: 'Flirt',
-        width: 400
+        width: 400,
+        modal: true
     });
 
     //The Flirt button!
     $('#btn_flirt').button().bind('click', function() {
         //Is there a male and a female selected?
         if (null == selected_male || null == selected_female) {
-            alert('You must select a Male and a Female to flirt');
+            $('<div><p>You must select a Male and Female to flirt.</p></div>')
+                .dialog({
+                    'title': 'Warning',
+                    'modal': true,
+                    'buttons': {
+                        'Ok': function() { $(this).dialog('close'); }
+                    }
+                });
         } else {
             //Let's play the flirting game!
             //Stop the timer
@@ -59,13 +67,14 @@ function setup() {
         if ('males' ==  target.parent().parent().attr('id')) {
             //Set the border
             $('#males td').css('border', 'thin solid #ccc');
-            $('td', target).css('border', 'thick solid blue');
+            
 
             //Find the client for this profile.
             for (var idx = male_client_list.length - 1; idx >= 0; idx--) {
                 if (male_client_list[idx].id == parseInt(e.currentTarget.id, 10)) {
                     if (!male_client_list[idx].hadDate) {
                         selected_male = male_client_list[idx];
+                        $('td', target).css('border', 'thick solid blue');
                     }
                     break;
                 }
@@ -73,13 +82,13 @@ function setup() {
         } else {
             //Set the border
             $('#females td').css('border', 'thin solid #ccc');
-            $('td', target).css('border', 'thick solid pink');
-
+            
             //Find the client for this profile.
             for (var idx = female_client_list.length - 1; idx >= 0; idx--) {
                 if (female_client_list[idx].id == parseInt(e.currentTarget.id, 10)) {
                     if (!female_client_list[idx].hadDate) {
                         selected_female = female_client_list[idx];
+                        $('td', target).css('border', 'thick solid pink');
                     }
                     break;
                 }
@@ -136,6 +145,11 @@ function gameTimer() {
         if (client.happy <= 0) {
             male_delete.push(idx);
         }
+        //If they have full happyness, give bonus and remove
+        if (client.happy >= 100) {
+            money += 100;
+            male_delete.push(idx);
+        }
     }
     idx = female_client_list.length;
     while (idx--) {
@@ -150,6 +164,12 @@ function gameTimer() {
         if (client.happy <= 0) {
             female_delete.push(idx);
         }
+        //If they have full happyness, give bonus and remove
+        if (client.happy >= 100) {
+            money += 100;
+            female_delete.push(idx);
+        }
+
     }
     
     //Remove anyone that's unhappy
